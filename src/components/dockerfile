@@ -1,0 +1,10 @@
+FROM node:18-alpine  # Base image with Node.js 18
+
+WORKDIR /app
+
+COPY package*.json ./  # Copy package.json and potentially lock file
+RUN npm install  # Install dependencies
+
+COPY . .
+EXPOSE 3000  # Expose port for React app
+CMD [ "npm", "start" ]  # Start the React development server
